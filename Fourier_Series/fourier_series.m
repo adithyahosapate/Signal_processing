@@ -22,21 +22,25 @@ for n=1:100;
   b=[b b_k];
 end 
 
-plt=a0/2;
-a0
+#plt=a0/2;
+#a0
 
 t_=linspace(-10,10,10000);
-function plt=fourier_series(mf,a0,a,b)
-  plt=a0/2;
-  for j=1:mf;
-    plt=plt+a(j)*sin(j*t_*omega)+b(j)*cos(j*t_*omega);
-  end
-endfunction
+
+mf=10;
+fs(mf,a0,t_,a,b,omega);
 
 figure1=figure % new figure
-ax_1 = subplot(2,1,1); % top subplot
-ax_2 = subplot(2,1,2); % bottom subplot
+ax_1 = subplot(2,2,1); 
+ax_2 = subplot(2,2,2); 
+ax_3 = subplot(2,2,3); 
+ax_4 = subplot(2,2,4); 
  
-plot(ax_1,t_,fourier_series(10,a0,a,b))
-plot(ax_2,t_,fourier_series(100,a0,a,b))
+plot(ax_1,t_,fs(1,a0,t_,a,b,omega))
+plot(ax_2,t_,fs(5,a0,t_,a,b,omega)) 
+plot(ax_3,t_,fs(10,a0,t_,a,b,omega))
+plot(ax_4,t_,fs(100,a0,t_,a,b,omega))
 
+
+saveas(gcf,'image.png')
+hold on;
