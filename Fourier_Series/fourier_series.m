@@ -8,13 +8,14 @@ n=2;
 a=[];
 b=[];
 #plot(a);
-fun_0 =@(x) 1/T*x;
+
+fun_0 =@(x) 1/T*(x-x+1);
 a0=quad(fun_0,-1,1);
 
 max_freq=1000;
 for n=1:100;
-  fun_1 =@(x) 1/T.*x .*sin(n.*x.*omega);
-  fun_2 =@(x) 1/T.*x .*cos(n.*x.*omega);
+  fun_1 =@(x) 1/T.*(x-x+1) .*sin(n.*x.*omega);
+  fun_2 =@(x) 1/T.*(x) .*cos(n.*x.*omega);
   a_k = quadgk(fun_1,-T,T);
   b_k = quadgk(fun_2,-T,T);
   
