@@ -7,15 +7,19 @@ n=2;
 
 a=[];
 b=[];
-#plot(a);
 
-fun_0 =@(x) 1/T*(x-x+1);
+#Original_graph=[t.^2 t.^2 t.^2 t.^2];
+#plot(a);
+#plot(Original_graph);
+#hold on;
+
+fun_0 =@(x) 1/T*(x.^3);
 a0=quad(fun_0,-1,1);
 
 max_freq=1000;
 for n=1:100;
-  fun_1 =@(x) 1/T.*(x-x+1) .*sin(n.*x.*omega);
-  fun_2 =@(x) 1/T.*(x) .*cos(n.*x.*omega);
+  fun_1 =@(x) 1/T.*(x.^3) .*sin(n.*x.*omega);
+  fun_2 =@(x) 1/T.*(x.^3) .*cos(n.*x.*omega);
   a_k = quadgk(fun_1,-T,T);
   b_k = quadgk(fun_2,-T,T);
   
