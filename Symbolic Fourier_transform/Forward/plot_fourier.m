@@ -5,14 +5,14 @@ func = evalin(symengine,input_string)
 
 fig1=figure
 subplot(3,1,1)
-ezplot(func,[-5,5]);
+fplot(func,[-5,5]);
 title('Function');
 
 ft=fourier(func);
 ft=simplify(ft)
 
 subplot(3,1,2)
-ezplot(abs(ft));
+fplot(abs(ft));
 mag_resp=abs(ft)
 title('Magnitude response')
 
