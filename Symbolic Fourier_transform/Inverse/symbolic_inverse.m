@@ -3,8 +3,7 @@ syms t w;
 
 T=0.5;
 %enter function here
-original_function=(1/(1+t^2))
-
+original_function=e^(-t^2)
 
 fourier_func= pi*exp(-abs(w))
 fig1=figure
